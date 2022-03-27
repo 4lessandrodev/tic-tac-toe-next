@@ -13,7 +13,7 @@ const _Cell = styled.div<{ data: string, value: ISymbol }>`
 	display: flex;
 	width: 120px;
 	height: 120px;
-	border: 1px solid white;
+	border: 1px solid #2e2828;
 	justify-content: center;
 	align-items: center;
 	font-weight: bold;
@@ -40,7 +40,7 @@ export default function Cell({ value, rowNumber, colNumber, fillPosition, winner
 	return (
 		<_Cell
 			style={{
-				backgroundColor: (isWinner) ? '#1a5231dd' : '#ededed',
+				backgroundColor: (isWinner) ? '#1a5231dd' : '#edededa2',
 				color: (isWinner) ? '#ededed' : '#20194d'
 			}}
 			data={position}

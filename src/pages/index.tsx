@@ -32,8 +32,19 @@ const Home: NextPage = () => {
 
       if (result.oWon || result.xWon) {
         setWinnerPosition(result.positions);
+        return;
       }
   
+      const withRandomPlay = updatedMatrix.randomPlay();
+      const gameResult = withRandomPlay.getGameResult();
+
+      setMatrix(withRandomPlay as any);
+
+      if (gameResult.oWon || gameResult.xWon) {
+        setWinnerPosition(gameResult.positions);
+        return;
+      }
+
     } catch (error: any) {
       alert(error.message)
     }

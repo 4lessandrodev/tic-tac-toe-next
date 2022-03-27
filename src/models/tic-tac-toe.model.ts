@@ -50,12 +50,38 @@ export class TicTacToeModel implements ITicTacToeModel {
 
 		this.validateWinner();
 	}
+
 	getMatrixPositions(): Array<ISymbol[]> {
 		return ([
 			[this.#A1,this.#B1,this.#C1],
 			[this.#A2,this.#B2,this.#C2],
 			[this.#A3,this.#B3,this.#C3]
 		])
+	}
+
+	randomPlay(): ITicTacToeModel {
+		const symbol = this.nextPlayer;
+		const plays = this.#wonRules;
+		const matrix = this.matrix;
+
+		const line = Math.trunc(Math.random() * (this.#wonRules.length - 1));
+		const position = Math.trunc(Math.random() * plays[line].length - 1);
+		const address = plays[line][position];
+
+		const isEmpty = matrix[address] === ' ';
+
+		if (isEmpty) {
+
+			return new TicTacToeModel({
+				matrix: {
+					...matrix,
+					[plays[line][position]]: symbol
+				},
+				currentTurn: this.nextPlayer
+			})
+		}
+
+		return this.randomPlay();
 	}
 
 	private randomSymbol (): IMarkSymbol {

@@ -11,6 +11,10 @@ const _Button = styled.button`
 	width: 360px;
 	text-transform: uppercase;
 	margin: 1.2rem;
+	background-color: #105824dd;
+	border: none;
+	color: white;
+	border-radius: 10px;
 	&:hover {
 		cursor: pointer;
 	}

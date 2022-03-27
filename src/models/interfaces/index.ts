@@ -53,4 +53,5 @@ export interface ITicTacToeModel {
 	nextPlayer: IMarkSymbol;
 	getNextSymbolTurn(): IMarkSymbol;
 	getMatrixPositions(): Array<ISymbol[]>;
+	randomPlay(): ITicTacToeModel;
 }
